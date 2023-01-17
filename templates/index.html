@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>CheckerBoard</title>
+</head>
+
+<body>
+    <h1 style="background-color: {{color_two}}; color: {{color_one}}">Checker Board</h1>
+    <h2 style="text-align: center;">Input in the url how much rows and cols you want it to display</h2>
+    <h2 style="text-align: center;">In the url change the 4/40 to any number you want http://127.0.0.1:5000/4/40 </h2>
+    <table>
+        <tbody>
+            {% for row in range(0,rows) %}
+            <tr>
+                {% for col in range(0,cols) %}
+                    {% if (row+col) % 2 == 0 %}
+                        <td style="background-color: {{color_one}};">
+                        </td>
+                    {% else %}
+                        <td style="background-color: {{color_two}};"></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
